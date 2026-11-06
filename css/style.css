@@ -168,11 +168,17 @@ footer {
   max-width: 500px;
 }
 .about-image {
-  min-height: 350px; /* tillfälligt utryme för bilden*/
-  background-color: #28503e;
-  border-radius: 12px;
-  border: 2px solid #829e7d; /* Tillfällig kant för att se rutan */
-  border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px; /* Lite luft runt bilden */
+}
+
+.about-image img {
+  max-width: 100%;
+  max-height: 420px; /* Begränsar höjden */
+  height: auto;
+  display: block;
 }
 
 /* Responsiv design för mindre skärmar */
