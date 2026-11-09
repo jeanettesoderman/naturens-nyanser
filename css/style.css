@@ -21,11 +21,19 @@ header {
   background-color: #101b16;
 }
 
+/* Loggan*/
 .logo {
   color: #e2c4ee; /* Ljuslila accentfärg */
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
+}
+/* Loggans storlek */
+.logo img {
+  display: block;
+  width: 300px; /*begränsar bredden*/
+  max-width: 100%; /*anpassar till mindre skärmar*/
+  height: auto; /*behåller proportioner*/
 }
 
 nav ul {
@@ -39,11 +47,16 @@ nav ul {
 nav a {
   color: #f1f1ed;
   text-decoration: none;
+  font-family:
+    Georgia, "Times New Roman", serif; /*samma teckensnitt som loggan*/
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: 0.5px;
 }
 
 nav a:hover,
 nav a[aria-current="page"] {
-  color: #d5a7e5;
+  color: #c891dfff;
 }
 
 /* Hero */
