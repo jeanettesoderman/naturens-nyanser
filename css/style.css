@@ -239,6 +239,26 @@ footer {
   display: block;
 }
 
+/* Anpassning för surfplattor lades till för att få det snyggare i stl 768*/
+@media (min-width: 701px) and (max-width: 900px) {
+  header {
+    gap: 15px; /* Minskar avståndet mellan logotyp och navigation */
+  }
+
+  .logo img {
+    width: 250px; /* Gör logotypen lite mindre */
+  }
+
+  nav ul {
+    gap: 15px; /* Minskar avståndet mellan länkarna */
+  }
+
+  nav a {
+    font-size: 1.2rem; /* Något mindre navigationstext */
+    white-space: nowrap; /* Förhindrar att Om mig delas upp */
+  }
+}
+
 /* Responsiv design för mindre skärmar */
 @media (max-width: 700px) {
   header {
