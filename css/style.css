@@ -21,19 +21,20 @@ header {
   background-color: #101b16;
 }
 
-/* Loggan*/
+/* Loggan */
 .logo {
   color: #e2c4ee; /* Ljuslila accentfärg */
   font-size: 1.5rem;
   font-weight: bold;
   text-decoration: none;
 }
+
 /* Loggans storlek */
 .logo img {
   display: block;
-  width: 300px; /*begränsar bredden*/
-  max-width: 100%; /*anpassar till mindre skärmar*/
-  height: auto; /*behåller proportioner*/
+  width: 300px; /* Begränsar bredden */
+  max-width: 100%; /* Anpassar till mindre skärmar */
+  height: auto; /* Behåller proportioner */
 }
 
 nav ul {
@@ -47,8 +48,7 @@ nav ul {
 nav a {
   color: #f1f1ed;
   text-decoration: none;
-  font-family:
-    Georgia, "Times New Roman", serif; /*samma teckensnitt som loggan*/
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.4rem;
   font-weight: 500;
   letter-spacing: 0.5px;
@@ -71,14 +71,39 @@ nav a[aria-current="page"] {
   background: linear-gradient(#20392e, #15231d);
 }
 
+/* Headerbild på startsidan */
+.hero-home {
+  position: relative; /* Placerar bilden bakom texten */
+  min-height: 450px;
+  background: #15231d; /* Mörkgrön färg som syns genom bilden */
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.hero-home::before {
+  content: "";
+  position: absolute;
+  inset: 0; /* Täcker hela hero-sektionen */
+  background: url("../images/header.png") center / cover no-repeat;
+  opacity: 0.6; /* Bilden blir 60 % ogenomskinlig */
+  z-index: -1; /* Placerar bilden bakom texten */
+}
+
 .hero h1 {
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 0;
 }
 
+.hero-home h1 {
+  transform: translateY(-12px); /* Flyttar upp rubriken */
+}
+
 .hero p {
-  font-size: 1.1rem;
-  color: #d5d9d3;
+  font-size: 1.2rem;
+  font-weight: 600; /* Gör texten lite kraftigare */
+  color: #f1f1ed; /* Ljusare text */
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
 }
 
 /* Sidans innehåll */
@@ -99,15 +124,19 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 25px;
+  align-items: center;
+  justify-items: center;
 }
 
 .image-grid img {
-  width: 100%;
-  height: 350px;
-  object-fit: contain; /* Visar hela bilden utan beskärning */
+  display: block;
+  width: auto; /* Anpassas efter bildens proportioner */
+  height: auto;
+  max-width: 100%; /* Hindrar bilden från att bli för bred */
+  max-height: 350px; /* Begränsar höjden */
+  padding: 25px; /* Lika mycket luft runt alla bilder */
   background-color: #101b16;
   border-radius: 10px;
-  padding: 8px;
 }
 
 /* Footer */
@@ -120,58 +149,73 @@ footer {
 
 /* Bildredigering - före och efter */
 .comparison {
-  max-width: 1100px; /* Samma bredd som övrigt innehåll */
+  max-width: 810px; /* Samma bredd som introduktionen */
   margin: 0 auto;
-  padding: 20px 25px 60px;
+  padding: 0 25px 40px;
+}
+
+.comparison-item h2 {
+  font-weight: 400; /* Gör bildrubrikerna tunnare */
+  font-size: 1.2rem; /* Mindre rubrikstorlek */
+}
+
+.intro-comparison {
+  max-width: 810px; /* Anpassar introduktionen till bildparen */
+  padding-bottom: 20px;
 }
 
 .comparison-item {
-  max-width: 760px; /* Samma bredd för rubrik, bilder och text */
-  margin: 0 auto 70px; /* Centrerar hela bildparets innehåll */
+  max-width: 100%; /* Använder hela innehållsbredden */
+  margin: 0 0 80px;
 }
 
+/* Före- och efterbilder */
 .comparison-images {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 20px;
-  margin: 20px 0; /* Jämnt avstånd ovanför och under bilderna */
+  display: flex; /* Flexbox i stället för Grid för att se om det förändrar mitt problem med känslan av att nåt ser "fel ut"*/
+  justify-content: center; /* Centrerar bildparet */
+  align-items: flex-start; /* Bilderna börjar på samma höjd */
+  gap: 100px; /* Avstånd mellan bilderna */
+  margin: 15px 0;
 }
 
 .comparison-images figure {
   margin: 0;
   min-width: 0;
-  display: flex; /* Placerar bild och bildtext i en kolumn */
+  flex: 0 1 auto; /*Låter bildrutorna anpassa sin bredd */
+  max-width: calc(50% - 10px); /*Högst halva bildytan per bild */
+  display: flex;
   flex-direction: column;
-  align-items: center; /*  Centrerar bilderna */
+  align-items: center; /* Centrerar bilderna och bildtexterna */
 }
 
 .comparison-images img {
   display: block;
   width: auto; /* Anpassas efter bildens proportioner */
-  height: auto; /* Ingen fast höjd */
-  max-width: 100%; /* Bilden får inte bli bredare än kolumnen */
-  max-height: 350px; /* Begränsar bildens höjd inklusive ramen */
-  padding: 25px; /* Samma utrymme runt hela bilden */
+  height: auto;
+  max-width: 100%; /* Bilden får inte bli bredare än sin bildruta */
+  max-height: 350px; /* Begränsar höjden inklusive ramen */
+  padding: 25px; /* Lika mycket luft runt bilden */
   background-color: #101b16;
   border-radius: 10px;
 }
 
 .comparison-images figcaption {
   text-align: center;
-  margin-top: 10px; /* Mindre avstånd till bildtexten */
-  color: #d5d9d3; /* Ljusgrå färg på bildtexten */
+  margin-top: 15px; /* Avstånd mellan bild och bildtext */
+  color: #d5d9d3;
 }
 
 .comparison-item p {
-  margin-top: 25px; /* Avstånd till beskrivningen */
+  margin-top: 15px; /* Avstånd till beskrivningen */
   max-width: 800px;
 }
-/* om mig sidan*/
+
+/* Om mig-sidan */
 .about {
   display: grid;
-  grid-template-columns: 1fr 1fr; /* ger 2 lika kolumner*/
-  align-items: center; /* centrerar innehåll på höjden*/
-  gap: 50px; /* mellanrum mellan text o bild*/
+  grid-template-columns: 1fr 1fr; /* Två lika breda kolumner */
+  align-items: center; /* Centrerar innehållet på höjden */
+  gap: 50px; /* Mellanrum mellan text och bild */
   max-width: 1100px;
   margin: 0 auto;
   padding: 70px 25px;
@@ -180,6 +224,7 @@ footer {
 .about-text {
   max-width: 500px;
 }
+
 .about-image {
   display: flex;
   justify-content: center;
@@ -212,8 +257,14 @@ footer {
     padding: 35px 20px;
   }
 
+  /* Före- och efterbilder på mobil */
   .comparison-images {
-    grid-template-columns: 1fr; /* En bild per rad på mobil */
+    flex-direction: column; /* Staplar bilderna */
+    align-items: center; /* Centrerar bilderna */
+  }
+
+  .comparison-images figure {
+    max-width: 100%; /* Tillåter full bredd på mobil */
   }
 
   .comparison {
