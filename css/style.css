@@ -166,7 +166,7 @@ footer {
 
 .comparison-item {
   max-width: 100%; /* Använder hela innehållsbredden */
-  margin: 0 0 80px;
+  margin: 0 0 80px; /* mellanrum mellan bilderna*/
 }
 
 /* Före- och efterbilder */
