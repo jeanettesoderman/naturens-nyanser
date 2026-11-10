@@ -6,9 +6,10 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  font-size: 1.1rem; /* Gör grundtexten lite större */
   background-color: #15231d; /* Mörkgrön bakgrund */
-  color: #f1f1ed;
-  line-height: 1.6;
+  color: #f6f6f2;
+  line-height: 1.7;
 }
 
 /* Header och navigation */
@@ -90,13 +91,14 @@ nav a[aria-current="page"] {
 }
 
 .hero h1 {
+  color: #e2c4ee;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
   font-size: clamp(2rem, 5vw, 3.5rem);
   margin: 0;
 }
 
 .hero-home h1 {
-  transform: translateY(-12px); /* Flyttar upp rubriken */
+  transform: translateY(5px); /* Flyttar rubriken uppåt eller nedåt */
 }
 
 .hero p {
